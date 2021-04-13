@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+/* Naslov web str */
+.header {
+  padding: 5px;
+  text-align: center;
+  background: #cce5ff;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Navigacija */
+.topnav {
+  overflow: hidden;
+  background-color: #007bff!important;;
+}
+
+
+.headernav {
+  overflow: hidden;
+  background-color: #cce5ff!important;;
+}
+
+/* Navigacijski linkovi */
+.headernav a {
+  float: left;
+  display: block;
+  color: black;
+  background-color: transparent;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Hover boja */
+.headernav a:hover {
+  background-color: #fff3cd;
+  color: black;
+}
+
+
+/* Navigacijski linkovi */
+.topnav a {
+  float: left;
+  display: block;
+  color: #fff;
+  background-color: transparent;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Hover boja */
+.topnav a:hover {
+  background-color: #fff3cd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #f403fc;
+  color: white;
+}
+
+.logo {
+  font-family: cursive;
+}
+
+/* Lijevi stupac */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Desni stupac */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Slike */
+.fakeimg {
+  background-color: #aaa;
+  background: #e2e3e5;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Kartica */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Nakon stupca očisti float */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+  background: #cce5ff;
+
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #007bff!important;;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #fff;
+  background-color: transparent;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.navbar a:hover {
+  background-color: #fff3cd;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #f403fc;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .headernav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
