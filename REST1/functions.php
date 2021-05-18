@@ -6,7 +6,7 @@ function get_employees($id=0)
 	$query="SELECT * FROM employees";
 	if($id != 0)
 	{
-		$query.=" WHERE emp_no=".$id." LIMIT 10";
+		$query.=" WHERE employee_id=".$id." LIMIT 1000";
 	}
 	$response=array();
 	$result=mysqli_query($connection, $query);
@@ -23,14 +23,16 @@ function insert_employee()
 		global $connection;
 
 		$data = json_decode(file_get_contents('php://input'), true);
-		$employeeNumber		=$data["employeeNumber"];
+		$employeeId	=$data["employee_id"];
 		$lastName			=$data["lastName"];
 		$firstName			=$data["firstName"];
-		$extension			=$data["extension"];
 		$email				=$data["email"];
-		$officeCode			=$data["officeCode"];
-		$reportsTo			=$data["reportsTo"];
-		$jobTitle			=$data["jobTitle"];
+		$phoneNumber		=$data["phone_number"];
+		$hire_date			=$data["hire_date"];
+		$job_id				=$data["job_id"];
+		$salary 			=$data["salary"];
+		$manager_id			=$data["manager_id"];
+		$depart_id			=$data["department_id"];
 		
 		echo $query="INSERT INTO employees VALUES (NULL, '".$employeeNumber."','".$lastName."','".$firstName."','".$extension."','".$email."','".$officeCode."','".$reportsTo."','".$jobTitle."',NOW())";
 		if(mysqli_query($connection, $query))
@@ -59,16 +61,19 @@ function insert_employee()
 function update_employee($id)
 	{
 		global $connection;
-		$post_vars = json_decode(file_get_contents("php://input"),true);
+		$post_vars 			= json_decode(file_get_contents("php://input"),true);
+		$employeeId			=$data["employee_id"];
 		$lastName			=$data["lastName"];
 		$firstName			=$data["firstName"];
-		$extension			=$data["extension"];
 		$email				=$data["email"];
-		$officeCode			=$data["officeCode"];
-		$reportsTo			=$data["reportsTo"];
-		$jobTitle			=$data["jobTitle"];
+		$phoneNumber		=$data["phone_number"];
+		$hire_date			=$data["hire_date"];
+		$job_id				=$data["job_id"];
+		$salary 			=$data["salary"];
+		$manager_id			=$data["manager_id"];
+		$depart_id			=$data["department_id"];
 		
-		$query="UPDATE employees SET lastName='".$lastName."', firstName='".$firstName."', extension='".$extension."', email='".$email."', officeCode='".$officeCode."', firstName='".$reportsTo."', firstName='".$jobTitle."' WHERE empoyeeNumber=".$id;
+		$query="UPDATE employees SET lastName='".$lastName."', firstName='".$firstName."', phone_number='".$phone_number."', email='".$email."', hire_date='".$hire_date."', job_id='".$job_id."', salary='".$salary."', manager_id='".$manager_id."', department_id='".$depart_id."' WHERE employee_id=".$id;
 		
 		$result=mysqli_query($connection, $query);
 		$broj_redaka = mysqli_affected_rows($connection);;
@@ -98,7 +103,7 @@ function update_employee($id)
 function delete_employee($id)
 	{
 	global $connection;
-	$query="DELETE FROM employees WHERE employeeNumber=".$id;
+	$query="DELETE FROM employees WHERE employee_id=".$id;
 	if($result = mysqli_query($connection, $query))
 	{
 		$response=array(
