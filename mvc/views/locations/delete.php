@@ -1,2 +1,0 @@
-<p>Uspješno pobrisan </p>
-
